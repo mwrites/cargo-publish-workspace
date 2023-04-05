@@ -79,6 +79,7 @@ pub fn publish_crate(
     print_status!("Publishing", &format!("`{}` to crates.io", _crate.name));
     let output = cargo_command
         .arg(format!("--token={}", crates_io_token))
+        .env(ENV_VAR_CARGO_REGISTRY_TOKEN, crates_io_token)
         .arg("--locked")
         .args(cargo_publish_args)
         .current_dir(crate_dir)
