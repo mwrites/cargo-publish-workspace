@@ -52,6 +52,12 @@ $ cargo publish-workspace --crate-prefix mat-clockwork --show-order
 3. mat-clockwork-network-program
 ```
 
+Excluding a crate from being published
+```console
+cargo publish-workspace --target-version 1.0.0 --token CRATES_IO_TOKEN --crate-prefix PREFIX --exclude crate-1 --exclude crate-2
+```
+> You can also set `publish = false` in the crate Cargo.toml
+
 ## Publishing From GitHub Action
 This tool has been made to work with a CI such as GitHub Action.
 Make sure to setup the GitHub secrets variable for `CRATES_IO_TOKEN` with the appropriate value.
