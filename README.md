@@ -42,7 +42,7 @@ $ cargo publish-workspace --target-version 1.0.0 --token CRATES_IO_TOKEN --crate
 Dry run and show order of crates to be published
 ```console
 $ cd my-mono-repo
-$ cargo publish-workspace --crate-prefix PREFIX --show-order
+$ cargo publish-workspace --crate-prefix mat-clockwork --show-order
 ```
 ```console
     Finished show dependencies order
