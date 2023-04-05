@@ -7,7 +7,7 @@ This tool extends Cargo to allow you to publish a workspace, a rust mono repo.
 Ensure that you have a fairly recent version of rust/cargo installed. On Ubuntu you would also need to install `libssl-dev` and `pkg-config` packages.
 
 ```console,ignore
-$ cargo install cargo-publish-workspace
+$ cargo install cargo-publish-workspace-v2
 ```
 
 ## Usage
