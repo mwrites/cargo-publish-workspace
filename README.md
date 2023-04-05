@@ -24,7 +24,7 @@ Options:
       --show-order                                     Only display the order of crates to be published
       --target-version <TARGET_VERSION>                Specify the version to use instead of CI_TAG environment variable
       --aligned-versions-only                          Verify that every Cargo.toml version are aligned with the version to publish
-      --token <TOKEN>                                  Specify the token to use instead of CRATES_IO_TOKEN environment variable
+      --token <TOKEN>                                  Specify the token to use instead of CARGO_REGISTRY_TOKEN environment variable
       --exclude <EXCLUDE>                              Crates to exclude and not modify (arg can be supplied multiple times)
       --verify-upload-retries <VERIFY_UPLOAD_RETRIES>  The number of retries to attempt when verifying the upload of a crate [default: 30]
   -h, --help                                           Print help
@@ -36,7 +36,7 @@ Options:
 Publish
 ```console
 $ cd my-mono-repo
-$ cargo publish-workspace --target-version 1.0.0 --token CRATES_IO_TOKEN --crate-prefix PREFIX
+$ cargo publish-workspace --target-version 1.0.0 --token CARGO_REGISTRY_TOKEN --crate-prefix PREFIX
 ```
 
 Dry run and show order of crates to be published
@@ -54,15 +54,15 @@ $ cargo publish-workspace --crate-prefix mat-clockwork --show-order
 
 Excluding a crate from being published
 ```console
-cargo publish-workspace --target-version 1.0.0 --token CRATES_IO_TOKEN --crate-prefix PREFIX --exclude crate-1 --exclude crate-2
+cargo publish-workspace --target-version 1.0.0 --token CARGO_REGISTRY_TOKEN --crate-prefix PREFIX --exclude crate-1 --exclude crate-2
 ```
 > You can also set `publish = false` in the crate Cargo.toml
 
 ## Publishing From GitHub Action
 This tool has been made to work with a CI such as GitHub Action.
-Make sure to setup the GitHub secrets variable for `CRATES_IO_TOKEN` with the appropriate value.
+Make sure to setup the GitHub secrets variable for `CARGO_REGISTRY_TOKEN` with the appropriate value.
 - Version will be inferred from the $CI_TAG environment variable
-- Token will be inferred from the $CRATES_IO_TOKEN environment variable
+- Token will be inferred from the $CARGO_REGISTRY_TOKEN environment variable
 ```console
 cargo publish-workspace --crate-prefix PREFIX
 ```

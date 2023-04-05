@@ -31,7 +31,7 @@ mod utils;
 type Result<T = (), E = Error> = std::result::Result<T, E>;
 
 // Constants
-pub const ENV_VAR_CRATES_IO_TOKEN: &str = "CRATES_IO_TOKEN";
+pub const ENV_VAR_CARGO_REGISTRY_TOKEN: &str = "CARGO_REGISTRY_TOKEN";
 pub const ENV_VAR_CI_TAG: &str = "CI_TAG";
 
 pub fn main() {

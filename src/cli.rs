@@ -58,7 +58,7 @@ pub struct PublishWorkspaceArgs {
 
     #[clap(
         long,
-        help = "Specify the token to use instead of CRATES_IO_TOKEN environment variable"
+        help = "Specify the token to use instead of CARGO_REGISTRY_TOKEN environment variable"
     )]
     token: Option<String>,
 
@@ -110,7 +110,7 @@ fn exec(args: PublishWorkspaceArgs) -> Result<()> {
         return Ok(());
     }
 
-    // Get CI_TAG and CRATES_IO_TOKEN environment variables or command line arguments
+    // Get CI_TAG and CARGO_REGISTRY_TOKEN environment variables or command line arguments
     let version = target_version
         .unwrap_or_else(|| {
             env::var(ENV_VAR_CI_TAG)
@@ -118,8 +118,8 @@ fn exec(args: PublishWorkspaceArgs) -> Result<()> {
         })
         .replacen('v', "", 1);
     let crates_io_token = token.unwrap_or_else(|| {
-        env::var(ENV_VAR_CRATES_IO_TOKEN)
-            .expect("CRATES_IO_TOKEN environment variable or --token argument not set")
+        env::var(ENV_VAR_CARGO_REGISTRY_TOKEN)
+            .expect("CARGO_REGISTRY_TOKEN environment variable or --token argument not set")
     });
 
     print_status!("Publishing", &format!("crates with version: {}", version));
