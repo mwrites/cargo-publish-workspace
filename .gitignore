@@ -1,0 +1,15 @@
+# Project specific stuff
+target
+*.bk
+
+# Editor Stuff
+.*.swp
+*.bak
+*~
+.vscode
+.idea
+
+# System stuff
+.DS_Store
+.Spotlight-V100
+.Trashes
